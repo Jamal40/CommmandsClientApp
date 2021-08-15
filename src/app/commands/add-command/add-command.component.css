@@ -1,0 +1,10 @@
+form {
+  padding: 2em;
+  text-align: center;
+}
+p {
+  width: 100%;
+}
+.mat-form-field {
+  width: 100%;
+}
