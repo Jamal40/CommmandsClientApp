@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommandService } from '../services/command.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CommandService } from '../services/command.service';
   styleUrls: ['./add-command.component.css'],
 })
 export class AddCommandComponent implements OnInit {
-  constructor(private commandService: CommandService) {}
+  constructor(private commandService: CommandService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -26,6 +27,7 @@ export class AddCommandComponent implements OnInit {
       .addCommand(this.commandForm.value)
       .subscribe((value) => {
         console.log(value);
+        this.router.navigate(['/', 'commands']);
       });
   }
 }

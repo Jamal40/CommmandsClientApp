@@ -1,6 +1,7 @@
 import { Component, AfterContentInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { CommandService } from '../services/command.service';
 import { CommandRead } from '../Types/Command';
 
@@ -15,12 +16,16 @@ export class CommandsListComponent implements AfterContentInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private commandService: CommandService) {}
+  constructor(private commandService: CommandService, private router: Router) {}
 
   ngAfterContentInit(): void {
     this.commandService.getAllCommands().subscribe((value: CommandRead[]) => {
       this.dataSource = new MatTableDataSource(value);
       this.dataSource.paginator = this.paginator;
     });
+  }
+
+  goToEdit(id: number) {
+    this.router.navigate(['/', 'commands', 'edit', id]);
   }
 }

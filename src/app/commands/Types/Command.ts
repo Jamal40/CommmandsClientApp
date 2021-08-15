@@ -1,4 +1,5 @@
 export interface CommandRead {
+  id: number;
   howTo: string;
   commandLine: string;
   platform: string;

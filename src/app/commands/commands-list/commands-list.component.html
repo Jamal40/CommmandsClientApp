@@ -23,7 +23,13 @@
       <th mat-header-cell *matHeaderCellDef>Command Line</th>
       <td mat-cell *matCellDef="let element">
         <div class="buttons-container">
-          <button mat-raised-button color="primary">Edit</button>
+          <button
+            (click)="goToEdit(element.id)"
+            mat-raised-button
+            color="primary"
+          >
+            Edit
+          </button>
           <button mat-raised-button color="warn">Delete</button>
         </div>
       </td>

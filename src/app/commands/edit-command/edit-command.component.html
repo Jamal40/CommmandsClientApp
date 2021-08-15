@@ -1,1 +1,40 @@
-<p>edit-command works!</p>
+<form [formGroup]="commandForm">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>How To</mat-label>
+      <textarea formControlName="howTo" matInput></textarea>
+      <mat-error *ngIf="commandForm.controls.howTo.errors?.required">
+        You must enter what your command should do.
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Platform</mat-label>
+      <textarea formControlName="platform" matInput></textarea>
+      <mat-error *ngIf="commandForm.controls.platform.errors?.required">
+        You must enter the platform for your command.
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Command Line</mat-label>
+      <textarea formControlName="commandLine" matInput></textarea>
+      <mat-error *ngIf="commandForm.controls.commandLine.errors?.required">
+        You must enter the command.
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <button
+    (click)="addCommand()"
+    [disabled]="!commandForm.valid"
+    mat-raised-button
+    color="accent"
+  >
+    Submit
+  </button>
+</form>

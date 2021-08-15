@@ -4,7 +4,7 @@
     routerLink="/commands"
     *ngFor="let link of links"
     (click)="activeLink = link.path"
-    [active]="activeLink == link.path"
+    [active]="activeLink.includes(link.path)"
   >
     {{ link.name }}
   </a>
