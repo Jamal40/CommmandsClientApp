@@ -26,7 +26,6 @@ export class AddCommandComponent implements OnInit {
     this.commandService
       .addCommand(this.commandForm.value)
       .subscribe((value) => {
-        console.log(value);
         this.router.navigate(['/', 'commands']);
       });
   }
