@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommandCreate, CommandRead, CommandUpdate } from '../Types/Command';
+import {
+  CommandCreate,
+  CommandRead,
+  CommandUpdate,
+  PatchDocument,
+} from '../Types/Command';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -25,5 +30,9 @@ export class CommandService {
   }
   public deleteCommand(id: number) {
     return this.client.delete(`${this.baseUrl}${id}`);
+  }
+  public patchCommand(id, patchDocument: PatchDocument[]) {
+    console.log(patchDocument);
+    return this.client.patch(`${this.baseUrl}${id}`, patchDocument);
   }
 }

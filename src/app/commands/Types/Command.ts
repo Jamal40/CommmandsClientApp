@@ -17,7 +17,7 @@ export interface CommandUpdate {
   platform: string;
 }
 
-export interface Patch {
+export interface PatchDocument {
   op: string;
   path: string;
   value: string;

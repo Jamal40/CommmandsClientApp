@@ -3,19 +3,43 @@
     <!-- How to Column -->
     <ng-container matColumnDef="howTo">
       <th mat-header-cell *matHeaderCellDef>How to</th>
-      <td mat-cell *matCellDef="let element">{{ element.howTo }}</td>
+      <td mat-cell *matCellDef="let element">
+        <div
+          (mousedown)="makeItEditable($event.target.innerText)"
+          (blur)="patchData($event.target.innerText, element, '/howto')"
+          [contentEditable]="contentEditable"
+        >
+          {{ element.howTo }}
+        </div>
+      </td>
     </ng-container>
 
     <!-- Platform Column -->
     <ng-container matColumnDef="platform">
       <th mat-header-cell *matHeaderCellDef>Platform</th>
-      <td mat-cell *matCellDef="let element">{{ element.platform }}</td>
+      <td mat-cell *matCellDef="let element">
+        <div
+          (mousedown)="makeItEditable($event.target.innerText)"
+          (blur)="patchData($event.target.innerText, element, '/platform')"
+          [contentEditable]="contentEditable"
+        >
+          {{ element.platform }}
+        </div>
+      </td>
     </ng-container>
 
     <!-- Command Line Column -->
     <ng-container matColumnDef="commandLine">
       <th mat-header-cell *matHeaderCellDef>Command Line</th>
-      <td mat-cell *matCellDef="let element">{{ element.commandLine }}</td>
+      <td mat-cell *matCellDef="let element">
+        <div
+          (mousedown)="makeItEditable($event.target.innerText)"
+          (blur)="patchData($event.target.innerText, element, '/commandLine')"
+          [contentEditable]="contentEditable"
+        >
+          {{ element.commandLine }}
+        </div>
+      </td>
     </ng-container>
 
     <!-- Actions Column -->

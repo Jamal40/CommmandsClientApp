@@ -3,10 +3,12 @@
 }
 .mat-cell,
 .mat-header-cell {
-  padding-left: 1em;
+  padding-inline: 0.5em !important;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
-
+td div {
+  padding-inline: 0.5em;
+}
 .buttons-container {
   display: flex;
   gap: 5px;

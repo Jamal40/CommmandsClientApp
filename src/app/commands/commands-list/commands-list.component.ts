@@ -14,7 +14,8 @@ import { CommandRead } from '../Types/Command';
 export class CommandsListComponent implements AfterContentInit {
   dataSource: MatTableDataSource<CommandRead>;
   displayedColumns: string[] = ['howTo', 'platform', 'commandLine', 'actions'];
-
+  contentEditable = false;
+  currentContent = '';
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -44,5 +45,30 @@ export class CommandsListComponent implements AfterContentInit {
     this.commandService.deleteCommand(id).subscribe((value) => {
       this.missionService.updateCommandList();
     });
+  }
+
+  makeItEditable(innerTextOnFocus: string) {
+    this.contentEditable = true;
+    this.currentContent = innerTextOnFocus;
+  }
+
+  patchData(newVal: string, element: CommandRead, propPath: string) {
+    if (newVal !== this.currentContent) {
+      console.log(element.id);
+      console.log(propPath);
+      console.log(newVal);
+      this.commandService
+        .patchCommand(element.id, [
+          {
+            op: 'replace',
+            path: propPath,
+            value: newVal,
+          },
+        ])
+        .subscribe((value) => {
+          console.log('the data has been partially updated');
+        });
+    }
+    this.contentEditable = false;
   }
 }
