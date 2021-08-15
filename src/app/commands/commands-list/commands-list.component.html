@@ -30,7 +30,9 @@
           >
             Edit
           </button>
-          <button mat-raised-button color="warn">Delete</button>
+          <button (click)="delete(element.id)" mat-raised-button color="warn">
+            Delete
+          </button>
         </div>
       </td>
     </ng-container>

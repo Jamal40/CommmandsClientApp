@@ -23,4 +23,7 @@ export class CommandService {
   public editCommand(id: number, edited: CommandUpdate) {
     return this.client.put(`${this.baseUrl}${id}`, edited);
   }
+  public deleteCommand(id: number) {
+    return this.client.delete(`${this.baseUrl}${id}`);
+  }
 }

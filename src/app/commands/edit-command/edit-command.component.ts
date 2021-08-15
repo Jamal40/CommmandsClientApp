@@ -41,7 +41,6 @@ export class EditCommandComponent implements OnInit {
     this.commandService
       .editCommand(this.currnetCommandId, this.commandForm.value)
       .subscribe((value) => {
-        console.log('successfully edited');
         this.router.navigate(['/', 'commands']);
       });
   }
