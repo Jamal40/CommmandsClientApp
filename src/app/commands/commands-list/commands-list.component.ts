@@ -16,6 +16,7 @@ export class CommandsListComponent implements AfterContentInit {
   displayedColumns: string[] = ['howTo', 'platform', 'commandLine', 'actions'];
   contentEditable = false;
   currentContent = '';
+  dataLoaded = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -35,6 +36,7 @@ export class CommandsListComponent implements AfterContentInit {
     this.commandService.getAllCommands().subscribe((value: CommandRead[]) => {
       this.dataSource = new MatTableDataSource(value);
       this.dataSource.paginator = this.paginator;
+      this.dataLoaded = true;
     });
   }
 

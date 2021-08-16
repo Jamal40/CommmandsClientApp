@@ -1,4 +1,7 @@
-<form [formGroup]="commandForm">
+<div *ngIf="!dataLoaded" class="container">
+  <mat-spinner></mat-spinner>
+</div>
+<form *ngIf="dataLoaded" [formGroup]="commandForm">
   <p>
     <mat-form-field appearance="fill">
       <mat-label>How To</mat-label>

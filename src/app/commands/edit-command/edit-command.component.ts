@@ -17,6 +17,8 @@ export class EditCommandComponent implements OnInit {
   ) {}
 
   currnetCommandId: number;
+  dataLoaded = false;
+
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((value: ParamMap) => {
       this.commandService
@@ -24,6 +26,7 @@ export class EditCommandComponent implements OnInit {
         .subscribe((value: CommandRead) => {
           this.currnetCommandId = value.id;
           this.commandForm.patchValue(value);
+          this.dataLoaded = true;
         });
     });
   }

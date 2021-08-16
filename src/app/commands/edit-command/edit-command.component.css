@@ -8,3 +8,9 @@ p {
 .mat-form-field {
   width: 100%;
 }
+.container {
+  height: 90vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
